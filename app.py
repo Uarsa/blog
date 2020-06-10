@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -8,13 +8,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    device = db.Column(db.String(100))
-    description = db.Column(db.Text)
-    tel = db.Column(db.Integer)
+    tel = db.Column(db.String(20))
+    #device = db.Column(db.String(100))
+    #description = db.Column(db.Text)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
@@ -32,9 +31,28 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/create_article')
+@app.route('/create_article', methods=['POST', 'GET'])
 def create_article():
-    return render_template('create_article.html')
+    if request.method == "POST":
+        name = request.form['name']
+        tel = request.form['tel']
+        #device = request.form['device']
+        #description = request.form['description']
+
+        article = Article(name=name,
+                          tel=tel,
+                          #device=device,
+                          #description=description
+                          )
+
+        db.session.add(article)
+        db.session.commit()
+        return redirect('/')
+
+        #except: return "There was an error adding the article..."
+
+    else:
+        return render_template('create_article.html')
 
 
 '''
