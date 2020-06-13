@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ALL POSTS
+{% endblock %}
+
+{% block body %}
+
+
+<h1>POSTS</h1>
+
+{% for el in articles %}
+
+<div class="alert alert-info">
+    <h2>{{ el.name }}</h2>
+    <p>{{ el.tel }}</p>
+    <p>{{ el.device }}</p>
+    <p>{{ el.description }}</p>
+    <p><b>{{ el.date.date() }}</b></p>
+    <!--button class="btn btn-warning">Details</--button-->
+    <a href="/posts/{{ el.id }}" class="btn btn-warning">Details</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}

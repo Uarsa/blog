@@ -12,8 +12,8 @@ class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     tel = db.Column(db.String(20))
-    #device = db.Column(db.String(100))
-    #description = db.Column(db.Text)
+    device = db.Column(db.String(100))
+    description = db.Column(db.Text)
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
@@ -31,23 +31,40 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/posts')
+def posts():
+    # get first element from table
+    # articles = Article.query.first()
+    # get all elements
+    # articles = Article.query.all()
+    # get all elements sorted by column
+    articles = Article.query.order_by(Article.date.desc()).all()
+    return render_template('posts.html', articles=articles)
+
+
+@app.route('/posts/<int:id>')
+def post_detail(id):
+    article = Article.query.get(id)
+    return render_template('post_detail.html', article=article)
+
+
 @app.route('/create_article', methods=['POST', 'GET'])
 def create_article():
     if request.method == "POST":
         name = request.form['name']
         tel = request.form['tel']
-        #device = request.form['device']
-        #description = request.form['description']
+        device = request.form['device']
+        description = request.form['description']
 
         article = Article(name=name,
                           tel=tel,
-                          #device=device,
-                          #description=description
+                          device=device,
+                          description=description
                           )
 
         db.session.add(article)
         db.session.commit()
-        return redirect('/')
+        return redirect('/posts')
 
         #except: return "There was an error adding the article..."
 
