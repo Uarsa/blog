@@ -78,10 +78,29 @@ def create_article():
         db.session.commit()
         return redirect('/posts')
 
-        #except: return "There was an error adding the article..."
+        # except: return "There was an error adding the article..."
 
     else:
         return render_template('create_article.html')
+
+
+@app.route('/post/<int:id>/update', methods=['POST', 'GET'])
+def post_update(id):
+    article = Article.query.get(id)
+    if request.method == "POST":
+        article.name = request.form['name']
+        article.tel = request.form['tel']
+        article.device = request.form['device']
+        article.description = request.form['description']
+
+        try:
+            db.session.commit()
+            return redirect('/posts')
+        except:
+            return "Фn error occurred while editing the article..."
+
+    else:
+        return render_template('post_update.html', article=article)
 
 
 '''
