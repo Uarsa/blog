@@ -23,7 +23,11 @@ class Article(db.Model):
 @app.route('/')
 @app.route('/home')
 def index():
-    return render_template('index.html')
+    #first way was:
+    #return render_template('index.html')
+    #then this:
+    articles = Article.query.order_by(Article.date.desc()).all()
+    return render_template('posts.html', articles=articles)
 
 
 @app.route('/about')
