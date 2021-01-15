@@ -12,11 +12,11 @@ ALL POSTS
 {% if articles|length > 0 %}
     {% for el in articles %}
         <div class="alert alert-info">
-            <h2>{{ el.name }}</h2>
+            <h3>{{ el.name }}</h3>
+            <p><b>{{ el.device }}</b><br>
+                  {{ el.description }}</p>
             <p>{{ el.tel }}</p>
-            <p><b>{{ el.device }}</b></p>
-            <p>{{ el.description }}</p>
-            <p><h5>{{ el.date.date() }}</hp></p>
+            <p><h5>{{ el.date.date() }}</h5></p>
             <!--button class="btn btn-warning">Details</--button-->
             <a href="/posts/{{ el.id }}" class="btn btn-warning">Details</a>
         </div>
