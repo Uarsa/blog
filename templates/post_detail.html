@@ -20,6 +20,12 @@
     <p><small>{{ article.date.date() }}</small></p>
     
     
+    <!--div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+    </div-->
+    
+    
     
     
     
@@ -28,9 +34,15 @@
     <p>{{ article.device }}</p>
     <p>{{ article.description }}</p>
     <p><b>{{ article.date.date() }}</b></p-->
-    <a href="/post/{{ article.id }}/update" class="btn btn-success">Update</a>
-    <a href="/posts/{{ article.id }}/delete" class="btn btn-danger">Delete</a>
-
+    
+    <!--a href="/post/{{ article.id }}/update" class="btn btn-success">Update</a>
+    <a href="/posts/{{ article.id }}/delete" class="btn btn-danger">Delete</a-->
+    
+    <div class="btn-group">
+        <a href="/post/{{ article.id }}/update" class="btn btn-sm btn-outline-secondary">Update</a>
+        <a href="/posts/{{ article.id }}/delete" class="btn btn-sm btn-outline-secondary">Delete</a>
+    </div>
+    
 </div>
 
 {% endblock %}
