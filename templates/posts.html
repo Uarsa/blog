@@ -19,30 +19,26 @@ All data
                 <th scope="col">Tel</th>
               </tr>
           </thead>
-
+          
+          <tbody>
 {% if articles|length > 0 %}
     {% for el in articles %}
-       
-        
-        
-            
-            
-             <tbody>
+
+             
               <tr>
-                <th scope="row">{{ el.device }}</th>
+                <td>{{ el.device }}</td>
                 <td>{{ el.description }}</td>
                 <td>{{ el.name  }}</td>
                 <td>{{ el.tel }}</td>
               </tr>
-             </tbody>
-      
-          
-            
-       
+
+           
     {% endfor %}
 {% else %}
     <p>No posts...</p>
 {% endif %}
+           
+        </tbody>           
      
 </table>     
 
