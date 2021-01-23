@@ -8,6 +8,48 @@ All data
 
 
 <h1>DATA</h1>
+
+{% if articles|length > 0 %}
+    {% for el in articles %}
+        <div class="alert alert-info">
+        
+            <h4>{{ el.device }}</h4>
+            <p>{{ el.description }}</p>
+            
+            <p><b>{{ el.name  }}</b><br>
+                  {{ el.tel }}</p>
+            <p><small>{{ el.date.date() }}</small></p>
+            <!--button class="btn btn-warning">Details</--button-->
+            
+            <a href="/posts/{{ el.id }}" class="btn btn-outline-primary">Details</a>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts...</p>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+All data
+{% endblock %}
+
+{% block body %}
+
+
+<h1>DATA</h1>
 <!--p><small>{{ el.date.date() }}</small></p-->
 <!--a href="/posts/{{ el.id }}" class="btn btn-outline-primary">Details</a-->
  
@@ -41,11 +83,3 @@ All data
 {% else %}
     <p>No posts...</p>
 {% endif %}
-           
-
-
-
-
-
-
-{% endblock %}
