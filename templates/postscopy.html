@@ -8,24 +8,45 @@ All data
 
 
 <h1>DATA</h1>
-
+<!--p><small>{{ el.date.date() }}</small></p-->
+<!--a href="/posts/{{ el.id }}" class="btn btn-outline-primary">Details</a-->
+ 
 {% if articles|length > 0 %}
     {% for el in articles %}
-        <div class="alert alert-info">
-        
-            <h4>{{ el.device }}</h4>
-            <p>{{ el.description }}</p>
-            
-            <p><b>{{ el.name  }}</b><br>
-                  {{ el.tel }}</p>
-            <p><small>{{ el.date.date() }}</small></p>
-            <!--button class="btn btn-warning">Details</--button-->
-            
-            <a href="/posts/{{ el.id }}" class="btn btn-outline-primary">Details</a>
-        </div>
+
+<table class="table table-striped">
+           <thead>
+              <tr>
+                <th scope="col">Device</th>
+                <th scope="col">Description</th>
+                <th scope="col">Name</th>
+                <th scope="col">Tel</th>
+              </tr>
+          </thead>
+          
+          <tbody>
+
+             
+              <tr>
+                <td>{{ el.device }}</td>
+                <td>{{ el.description }}</td>
+                <td>{{ el.name  }}</td>
+                <td>{{ el.tel }}</td>
+              </tr>
+        </tbody>           
+     
+</table>     
+           
     {% endfor %}
 {% else %}
     <p>No posts...</p>
 {% endif %}
+           
+
+
+
+
+
 
 {% endblock %}
+
