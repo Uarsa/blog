@@ -10,7 +10,11 @@ All data
 <h1>DATA</h1>
 <!--p><small>{{ el.date.date() }}</small></p-->
 <!--a href="/posts/{{ el.id }}" class="btn btn-outline-primary">Details</a-->
- <table class="table table-striped">
+ 
+{% if articles|length > 0 %}
+    {% for el in articles %}
+
+<table class="table table-striped">
            <thead>
               <tr>
                 <th scope="col">Device</th>
@@ -21,8 +25,6 @@ All data
           </thead>
           
           <tbody>
-{% if articles|length > 0 %}
-    {% for el in articles %}
 
              
               <tr>
@@ -31,16 +33,16 @@ All data
                 <td>{{ el.name  }}</td>
                 <td>{{ el.tel }}</td>
               </tr>
-
+        </tbody>           
+     
+</table>     
            
     {% endfor %}
 {% else %}
     <p>No posts...</p>
 {% endif %}
            
-        </tbody>           
-     
-</table>     
+
 
 
 
