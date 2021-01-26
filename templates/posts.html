@@ -20,6 +20,7 @@ All data
       <th scope="col">Description</th>
       <th scope="col">Name</th>
       <th scope="col">Tel</th>
+      <th scope="col">Date</th>
     </tr>
   </thead>
 
@@ -28,11 +29,12 @@ All data
 {% for el in articles %}
    
        <tr>
-          <th scope="row">1</th>
+          <th scope="row">{{ el.id }}</th>
           <td>{{ el.device }}</td>
           <td>{{ el.description }}</td>
           <td>{{ el.name }}</td>
           <td>{{ el.tel }}</td>
+          <td>{{ el.date.date() }}</td>
         </tr>
    
 {% endfor %}
