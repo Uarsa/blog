@@ -56,10 +56,10 @@ def posts():
     # get all elements sorted by column
     articles = Article.query.order_by(Article.date.desc()).all()
     
-    testvar1 = type(articles)
-    testvar2 = articles[0]
     
-    return render_template('find.html', articles=articles, testvar1=testvar1, testvar2=testvar2)
+    testvar = articles[0]
+    
+    return render_template('find.html', articles=articles, testvar=testvar)
 #test area
 
 
