@@ -48,7 +48,7 @@ def posts():
 
 #test area
 @app.route('/find')
-def posts():
+def find():
     # get first element from table
     # articles = Article.query.first()
     # get all elements
@@ -56,7 +56,8 @@ def posts():
     # get all elements sorted by column
     articles = Article.query.order_by(Article.date.desc()).all()
     
-    return render_template('find.html', articles=articles)
+    testvar = articles[0]	
+    return render_template('find.html', articles=articles, testvar=testvar)
 #test area
 
 
