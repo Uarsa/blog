@@ -46,6 +46,23 @@ def posts():
     return render_template('posts.html', articles=articles)
 
 
+#test area
+@app.route('/find')
+def posts():
+    # get first element from table
+    # articles = Article.query.first()
+    # get all elements
+    # articles = Article.query.all()
+    # get all elements sorted by column
+    articles = Article.query.order_by(Article.date.desc()).all()
+    
+    testvar1 = type(articles)
+    testvar2 = articles[0]
+    
+    return render_template('find.html', articles=articles, testvar1=testvar1, testvar2=testvar2)
+#test area
+
+
 @app.route('/posts/<int:id>')
 def post_detail(id):
     article = Article.query.get(id)
