@@ -64,9 +64,17 @@ def find():
     
     articles = Article.query.order_by(Article.date.desc()).all()
     
-    texts = ""
-    for el in articles:
-        texts += el.name
+    #texts = []
+    count = 0
+    texts = articles[0][name]
+        
+        
+    
+    
+    
+    
+        
+        
         
     
     
@@ -129,7 +137,7 @@ def post_update(id):
             db.session.commit()
             return redirect('/posts')
         except:
-            return "Фn error occurred while editing the article..."
+            return "An error occurred while editing the article..."
 
     else:
         return render_template('post_update.html', article=article)
