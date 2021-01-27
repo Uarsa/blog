@@ -64,11 +64,18 @@ def find():
     
     articles = Article.query.order_by(Article.date.desc()).all()
     
-    #texts = []
+    texts = []
     count = 0
-    texts = articles[0].name
-
+    #texts = articles[0].name
     
+    for el in articles:
+        texts.append([])
+        texts[count].append(el.name)
+        texts[count].append(el.tel)
+        texts[count].append(el.device)
+        texts[count].append(el.description)
+        count += 1
+  
     return render_template('find.html', texts=texts)
 #test area
 
