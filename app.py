@@ -66,7 +66,7 @@ def find():
     
     #texts = []
     count = 0
-    texts = articles[0]["name"]
+    texts = articles[0].name
 
     
     return render_template('find.html', texts=texts)
