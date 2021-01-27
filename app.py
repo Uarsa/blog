@@ -47,36 +47,43 @@ def posts():
 
 
 #test area
-#@app.route('/find', methods=['POST', 'GET'])
-@app.route('/find')
+@app.route('/find', methods=['POST', 'GET'])
+#@app.route('/find')
 def find():
     # get first element from table
     # articles = Article.query.first()
     # get all elements
     # articles = Article.query.all()
     # get all elements sorted by column
-    '''
+    
     if request.method == "POST":
         find = request.form['find']
+    
+        articles = Article.query.order_by(Article.date.desc()).all()
+
+        texts = []
+        count = 0
+        #texts = articles[0].name
+
+        for el in articles:
+            texts.append([])
+            texts[count].append(el.name)
+            texts[count].append(el.tel)
+            texts[count].append(el.device)
+            texts[count].append(el.description)
+            count += 1
+        
+        match = ""
+        for block in texts:
+            for word in block:
+                if word == find:
+                    match = word
+                    
+
+        return render_template('find.html', match=match)
+    
     else:
         return render_template('find.html')
-    '''    
-    
-    articles = Article.query.order_by(Article.date.desc()).all()
-    
-    texts = []
-    count = 0
-    #texts = articles[0].name
-    
-    for el in articles:
-        texts.append([])
-        texts[count].append(el.name)
-        texts[count].append(el.tel)
-        texts[count].append(el.device)
-        texts[count].append(el.description)
-        count += 1
-  
-    return render_template('find.html', texts=texts)
 #test area
 
 
