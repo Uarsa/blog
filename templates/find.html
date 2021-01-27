@@ -14,9 +14,15 @@ Find
       <input type="submit" class="btn btn-outline-primary" value="Find">
 </form-->
 
-           <p>{{ texts }}</p>
+           
 
-         
+ {% for i in texts %}
+
+        <p>{{ i }}</p>
+        
+    <p><br> </p>
+    <hr class="featurette-divider">
+ {% endfor %}         
 
 
 
