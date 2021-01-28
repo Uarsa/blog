@@ -71,7 +71,7 @@ def find():
             if find in row:
                 matches.append(texts.index(row)+1)
 
-        return render_template('find.html', matches=matches)
+        return render_template('find.html', matches=matches, articles=articles)
     
     else:
         return render_template('find.html')
