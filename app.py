@@ -70,7 +70,7 @@ def find():
         matches = []
         for row in reversed(texts):
             if find in row:
-                matches.append(texts.index(row)+1)
+                matches.append(texts.index(row))
         
         arts = []
         for index in matches:
