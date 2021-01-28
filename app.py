@@ -73,7 +73,7 @@ def find():
                 matches.append(texts.index(row))
         
         arts = []
-        for index in matches:
+        for index in reversed(matches):
             arts.append(articles[index])
         
         
