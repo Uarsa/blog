@@ -65,19 +65,15 @@ def find():
         count = 0
         #texts = articles[0].name
 
+        texts = []
         for el in articles:
-            texts.append([])
-            texts[count].append(el.name)
-            texts[count].append(el.tel)
-            texts[count].append(el.device)
-            texts[count].append(el.description)
-            count += 1
-        
+            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
+            texts.append(s)
+    
         match = ""
-        for block in texts:
-            for word in block:
-                if word == find:
-                    match = word
+        for row in texts:
+            if find in row:
+                match = "{} in {} article".format(find, texts.index(row)+1)
                     
 
         return render_template('find.html', match=match)
