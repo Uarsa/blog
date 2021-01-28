@@ -36,7 +36,44 @@ Find
 
 
 
+<table class="table">
+
+ 
+
+  <tbody>
+           
+{% if arts|length > 0 %}
+  {% for el in arts %}
+        
+       <tr>
+        
+          <th scope="row">{{ el.id }}</th>
+          <td>{{ el.device }}</td>
+          <td>{{ el.description }}</td>
+          <td>{{ el.name }}</td>
+          <td>{{ el.tel }}</td>
+          <td>{{ el.date.date() }}</td>
+          <td>
+                <div class="btn-group">
+                  <a href="/post/{{ el.id }}/update" class="btn btn-outline-primary btn-sm">Update</a>
+                  <a href="/posts/{{ el.id }}/delete" class="btn btn-outline-primary btn-sm">Delete</a>
+                </div>  
+          </td>
+        
+        </tr>
+   
+{% endfor %}
+        
+  </tbody>  
       
+{% else %}        
+      <p>not found...</p>
+{% endif %}
+   
+      
+</table>  
+
+
         
 {% if arts|length > 0 %}
   {% for el in arts %}
@@ -51,13 +88,6 @@ Find
 {% else %}        
       <p>not found...</p>
 {% endif %}
-
-          
-
-          
-
-
-      
 
 
 
