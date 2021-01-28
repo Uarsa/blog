@@ -37,7 +37,13 @@ Find
 {% if matches|length > 0 %}
   {% for i in matches %}
 
-      <p>find in {{ i }} article</p>
+      
+        
+          <p> {{ article{{ i }}.id }} </p>
+          
+
+
+      
 
   {% endfor %}      
 {% else %}        
