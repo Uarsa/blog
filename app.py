@@ -72,9 +72,9 @@ def find():
             if find in row:
                 matches.append(texts.index(row)+1)
         '''
-        matches = ["FINALY!", "ITWORKS!"]
+        #matches = ["FINALY!", "ITWORKS!"]
         
-        return render_template('find.html', matches=matches)
+        return render_template('find.html', articles=articles)
     
     else:
         return render_template('find.html')
