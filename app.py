@@ -68,7 +68,7 @@ def find():
             texts.append(s)
     
         matches = []
-        for row in reversed(texts):
+        for row in texts:
             if find in row:
                 matches.append(texts.index(row))
         
