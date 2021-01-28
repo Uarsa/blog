@@ -67,7 +67,7 @@ def find():
             s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
-        matches = [100, 200, 300]
+        matches = [0, 200, 300]
         '''
         for row in reversed(texts):
             if find in row:
