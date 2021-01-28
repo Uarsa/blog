@@ -67,15 +67,20 @@ def find():
             s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
-        matches = [0, 200, 300]
-        '''
+        matches = []
         for row in reversed(texts):
             if find in row:
                 matches.append(texts.index(row)+1)
-        '''
+        
+        arts = []
+        for index in matches:
+            arts.append(articles[index])
         
         
-        return render_template('find.html', articles=articles, matches=matches)
+        
+        
+        
+        return render_template('find.html', arts=arts)
     
     else:
         return render_template('find.html')
