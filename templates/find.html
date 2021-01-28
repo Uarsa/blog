@@ -34,21 +34,16 @@ Find
 <p><br> </p>
 <p><br> </p>
 
-{% if matches|length > 0 %}
-  {% for i in matches %}
+
 
       
         
-          <p> {{ articles.{{ i }}.id }} </p>
+          <p> {{ articles[1] }} </p>
           
 
 
       
 
-  {% endfor %}      
-{% else %}        
-      <p>not found...</p>
-{% endif %}
 
 
 
