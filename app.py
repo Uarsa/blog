@@ -66,7 +66,7 @@ def find():
         #texts = articles[0].name
 
         texts = []
-        for el in articles:
+        for el in reversed(articles):
             s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
