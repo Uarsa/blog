@@ -63,7 +63,7 @@ def find():
      
         
         texts = []
-        for el in reversed(articles):
+        for el in articles:
             s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
@@ -73,7 +73,7 @@ def find():
                 matches.append(texts.index(row))
         
         arts = []
-        for index in reversed(matches):
+        for index in matches:
             arts.append(articles[index])
         
         
