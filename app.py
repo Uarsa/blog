@@ -61,20 +61,21 @@ def find():
     
         articles = Article.query.order_by(Article.date.desc()).all()
      
-        '''
+        
         texts = []
         for el in reversed(articles):
             s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
-        matches = []
+        matches = [0, 2]
+        '''
         for row in reversed(texts):
             if find in row:
                 matches.append(texts.index(row)+1)
         '''
-        #matches = ["FINALY!", "ITWORKS!"]
         
-        return render_template('find.html', articles=articles)
+        
+        return render_template('find.html', articles=articles, matches=matches)
     
     else:
         return render_template('find.html')
