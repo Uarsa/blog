@@ -6,18 +6,17 @@
   {% endblock %}
 </div>  
   
-
-{% block body %}
-
 <div class="container">
-  <h1>ADD</h1>
-    <form method="post">
-        <input type="text" name="name" id="name" class="form-control" placeholder="client name"><br>
-        <input type="text" name="tel" id="tel" class="form-control" placeholder="telephone number"><br>
-        <input type="text" name="device" id="device" class="form-control" placeholder="device"><br>
-        <textarea name="description" id="description" class="form-control" placeholder="description"></textarea><br>
-        <input type="submit" class="btn btn-outline-primary" value="Enter">
-    </form>
-</div>  
+  {% block body %}
 
-{% endblock %}
+    <h1>ADD</h1>
+      <form method="post">
+          <input type="text" name="name" id="name" class="form-control" placeholder="client name"><br>
+          <input type="text" name="tel" id="tel" class="form-control" placeholder="telephone number"><br>
+          <input type="text" name="device" id="device" class="form-control" placeholder="device"><br>
+          <textarea name="description" id="description" class="form-control" placeholder="description"></textarea><br>
+          <input type="submit" class="btn btn-outline-primary" value="Enter">
+      </form>
+
+  {% endblock %}
+</div>  
