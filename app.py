@@ -57,7 +57,7 @@ def find():
     # get all elements sorted by column
     
     if request.method == "POST":
-        find = request.form['find']
+        find = request.form['find'].lower()
     
         articles = Article.query.order_by(Article.date.desc()).all()
      
