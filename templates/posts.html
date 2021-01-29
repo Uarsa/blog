@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
+
 {% block title %}
-All data
+  All data
 {% endblock %}
+
 
 {% block header %}
 
@@ -22,60 +24,58 @@ All data
 {% endblock %}
 
 
-
 {% block body %}
-<div class="container-fluid">
+  <div class="container-fluid">
 
-<h1>DATA</h1>
+    <h1>DATA</h1>
 
-<table class="table">
+    <table class="table">
 
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Device</th>
-      <th scope="col">Description</th>
-      <th scope="col">Name</th>
-      <th scope="col">Tel</th>
-      <th scope="col">Date</th>
-      <th scope="col"><a href="/create_article" class="btn btn-outline-primary">&nbsp; Add &nbsp; item &nbsp;</a></th>
-    </tr>
-  </thead>
-
-  <tbody>
-           
-{% for el in arts %}
-   
-       <tr>
-        
-          <th scope="row">{{ el.id }}</th>
-          <td>{{ el.device }}</td>
-          <td>{{ el.description }}</td>
-          <td>{{ el.name }}</td>
-          <td>{{ el.tel }}</td>
-          <td>{{ el.date.date() }}</td>
-          <td>
-                <div class="btn-group">
-                  <a href="/post/{{ el.id }}/update" class="btn btn-outline-primary btn-sm">Update</a>
-                  <a href="/posts/{{ el.id }}/delete" class="btn btn-outline-primary btn-sm">Delete</a>
-                </div>  
-          </td>
-        
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Device</th>
+          <th scope="col">Description</th>
+          <th scope="col">Name</th>
+          <th scope="col">Tel</th>
+          <th scope="col">Date</th>
+          <th scope="col"><a href="/create_article" class="btn btn-outline-primary">&nbsp; Add &nbsp; item &nbsp;</a></th>
         </tr>
-   
-{% endfor %}
-   
-   
-  </tbody>           
-     
-</table> 
-<p><br> </p>
-<p><br> </p>
-<p><br> </p>
-<p><br> </p>
-<p><br> </p>
-           
-    
+      </thead>
 
-</div>
+      <tbody>
+
+    {% for el in arts %}
+
+           <tr>
+
+              <th scope="row">{{ el.id }}</th>
+              <td>{{ el.device }}</td>
+              <td>{{ el.description }}</td>
+              <td>{{ el.name }}</td>
+              <td>{{ el.tel }}</td>
+              <td>{{ el.date.date() }}</td>
+              <td>
+                    <div class="btn-group">
+                      <a href="/post/{{ el.id }}/update" class="btn btn-outline-primary btn-sm">Update</a>
+                      <a href="/posts/{{ el.id }}/delete" class="btn btn-outline-primary btn-sm">Delete</a>
+                    </div>  
+              </td>
+
+            </tr>
+
+    {% endfor %}
+
+
+      </tbody>           
+
+    </table> 
+    <p><br> </p>
+    <p><br> </p>
+    <p><br> </p>
+    <p><br> </p>
+    <p><br> </p>
+
+    
+  </div>
 {% endblock %}
