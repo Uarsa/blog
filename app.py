@@ -51,7 +51,7 @@ def posts():
 
         texts = []
         for el in articles:
-            s = "{} {} {} {}".format(el.name.lower(), el.tel.lower(), el.device.lower(), el.description.lower())
+            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
         matches = []
@@ -89,7 +89,7 @@ def find():
         
         texts = []
         for el in articles:
-            s = "{} {} {} {}".format(el.name.lower(), el.tel.lower(), el.device.lower(), el.description.lower())
+            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
             texts.append(s)
     
         matches = []
