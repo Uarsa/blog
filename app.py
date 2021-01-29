@@ -123,7 +123,7 @@ def post_delete(id):
     try:
         db.session.delete(article)
         db.session.commit()
-        return redirect('/posts')
+        return redirect('/')
     except:
         return "Error. Post not delete..."
 
@@ -144,7 +144,7 @@ def create_article():
 
         db.session.add(article)
         db.session.commit()
-        return redirect('/posts')
+        return redirect('/')
 
         # except: return "There was an error adding the article..."
 
@@ -163,7 +163,7 @@ def post_update(id):
 
         try:
             db.session.commit()
-            return redirect('/posts')
+            return redirect('/')
         except:
             return "An error occurred while editing the article..."
 
