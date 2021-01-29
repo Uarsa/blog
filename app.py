@@ -46,12 +46,13 @@ def posts():
     
     if request.method == "POST":
         find = request.form['find']
+        find = find.lower()
     
         articles = Article.query.order_by(Article.date.desc()).all()
 
         texts = []
         for el in articles:
-            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
+            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description).lower()
             texts.append(s)
     
         matches = []
@@ -63,14 +64,14 @@ def posts():
         for index in matches:
             arts.append(articles[index])
         
-        return render_template('find.html', arts=arts)
+        return render_template('posts.html', arts=arts)
     
     else:
         
         arts = Article.query.order_by(Article.date.desc()).all()
         return render_template('posts.html', arts=arts)
 
-
+'''
 #test area
 @app.route('/find', methods=['POST', 'GET'])
 #@app.route('/find')
@@ -106,7 +107,7 @@ def find():
     else:
         return render_template('find.html')
 #test area
-
+'''
 
 @app.route('/posts/<int:id>')
 def post_detail(id):
@@ -175,10 +176,8 @@ def user(name, id):
     return f"User: {name}, id: {id}."
 '''
 
-# test Git...
 
 if __name__ == '__main__':
     app.run(debug=True)
-
 
 
