@@ -16,40 +16,44 @@
 
 <body>
     
-      <div class="header_margin">
-        <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
+ 
+<div class="header_margin">   
+  <header class="blog-header py-3">
+    
+    <div class="row flex-nowrap justify-content-between align-items-center">
+        
         <div class="col-4 pt-1">
-        <h3 class="my-0 mr-md-auto font-weight-normal"><a href="/home">it! service center</a></h3>
-      </div>
+          <h3 class="my-0 mr-md-auto font-weight-normal"><a href="/home">it! service center</a></h3>
+        </div>
           
-      <div class="col-4 text-center">
-         {% block header %}{% endblock %}
-      </div>
+        <div class="col-4 text-center">
+          {% block header %}{% endblock %}
+        </div>
           
-      <div class="col-4 d-flex justify-content-end align-items-center">
+        <div class="col-4 d-flex justify-content-end align-items-center">
           <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="/posts">Data</a>
             <a class="p-2 text-dark" href="/create_article">Add</a>
             <a class="p-2 text-dark" href="/find">Find</a>
             <a class="p-2 text-dark" href="/about">Info</a>
-         </nav>
+          </nav>
+        </div>
        
-        
-      </div>
     </div>
-  </div>    
-</header>
+
+  </header>
+</div> 
 
     
+    
 <div class="mainbody">
-    <div class="container-xl">
+  <div class="container-xl">
 
       {% block body %}
 
       {% endblock %}
         
-    </div>
+  </div>
 </div>
 
     
