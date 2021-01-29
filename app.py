@@ -83,13 +83,13 @@ def find():
     
     if request.method == "POST":
         find = request.form['find']
+        find = find.lower()
     
         articles = Article.query.order_by(Article.date.desc()).all()
      
-        
         texts = []
         for el in articles:
-            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description)
+            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description).lower()
             texts.append(s)
     
         matches = []
