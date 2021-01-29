@@ -19,7 +19,7 @@ class Article(db.Model):
     def __repr__(self):
         return '<Article %r>' % self.id
 
-
+'''
 @app.route('/')
 @app.route('/home')
 def index():
@@ -28,14 +28,15 @@ def index():
     #then this:
     arts = Article.query.order_by(Article.date.desc()).all()
     return render_template('posts.html', arts=arts)
-
+'''
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
 
-@app.route('/posts', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
+@app.route('/home', methods=['POST', 'GET'])
 def posts():
     # get first element from table
     # articles = Article.query.first()
