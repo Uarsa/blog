@@ -72,8 +72,8 @@ def posts():
 
 
 #test area
-#@app.route('/find', methods=['POST', 'GET'])
-@app.route('/find')
+@app.route('/find', methods=['POST', 'GET'])
+#@app.route('/find')
 def find():
     # get first element from table
     # articles = Article.query.first()
