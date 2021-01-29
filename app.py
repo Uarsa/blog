@@ -35,15 +35,40 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/posts')
+@app.route('/posts', methods=['POST', 'GET'])
 def posts():
     # get first element from table
     # articles = Article.query.first()
     # get all elements
     # articles = Article.query.all()
     # get all elements sorted by column
-    articles = Article.query.order_by(Article.date.desc()).all()
-    return render_template('posts.html', articles=articles)
+    
+    
+    if request.method == "POST":
+        find = request.form['find'].lower()
+    
+        articles = Article.query.order_by(Article.date.desc()).all()
+
+        texts = []
+        for el in articles:
+            s = "{} {} {} {}".format(el.name.lower(), el.tel.lower(), el.device.lower(), el.description.lower())
+            texts.append(s)
+    
+        matches = []
+        for row in texts:
+            if find in row:
+                matches.append(texts.index(row))
+        
+        arts = []
+        for index in matches:
+            arts.append(articles[index])
+        
+        return render_template('posts.html', arts=arts)
+    
+    else:
+        
+        articles = Article.query.order_by(Article.date.desc()).all()
+        return render_template('posts.html', arts=arts)
 
 
 #test area
@@ -75,10 +100,6 @@ def find():
         arts = []
         for index in matches:
             arts.append(articles[index])
-        
-        
-        
-        
         
         return render_template('find.html', arts=arts)
     
