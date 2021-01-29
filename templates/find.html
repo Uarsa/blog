@@ -5,9 +5,14 @@ Find
 {% endblock %}
 
 
- {% block header %}
+{% block header %}{% endblock %}
 
-  <form method="post">
+
+{% block body %}
+
+<h1>FIND</h1>
+
+ <form method="post">
     <div class="input-group">
    
       <input type="text" name="find" id="find" class="form-control" placeholder="search for..." aria-label="Search" aria-describedby="basic-addon1">
@@ -18,14 +23,7 @@ Find
       </a>               
                 
     </div>
-  </form>     
-
-{% endblock %}
-
-
-{% block body %}
-
-<h1>FIND</h1>
+ </form>     
 
 <p><br> </p>
 <p><br> </p>
