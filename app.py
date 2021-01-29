@@ -67,7 +67,7 @@ def posts():
     
     else:
         
-        articles = Article.query.order_by(Article.date.desc()).all()
+        arts = Article.query.order_by(Article.date.desc()).all()
         return render_template('posts.html', arts=arts)
 
 
