@@ -26,8 +26,8 @@ def index():
     #first way was:
     #return render_template('index.html')
     #then this:
-    articles = Article.query.order_by(Article.date.desc()).all()
-    return render_template('posts.html', articles=articles)
+    arts = Article.query.order_by(Article.date.desc()).all()
+    return render_template('posts.html', arts=arts)
 
 
 @app.route('/about')
@@ -63,7 +63,7 @@ def posts():
         for index in matches:
             arts.append(articles[index])
         
-        return render_template('posts.html', arts=arts)
+        return render_template('find.html', arts=arts)
     
     else:
         
@@ -72,8 +72,8 @@ def posts():
 
 
 #test area
-@app.route('/find', methods=['POST', 'GET'])
-#@app.route('/find')
+#@app.route('/find', methods=['POST', 'GET'])
+@app.route('/find')
 def find():
     # get first element from table
     # articles = Article.query.first()
