@@ -1,4 +1,3 @@
-# blog
 test blog on Flask.
 it! service center web application.
 
