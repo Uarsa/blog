@@ -15,6 +15,7 @@ class Article(db.Model):
     tel = db.Column(db.String(20))
     type = db.Column(db.String(10))
     device = db.Column(db.String(100))
+    defect = db.Column(db.Text)
     description = db.Column(db.Text)
     date = db.Column(db.DateTime, default=datetime.utcnow)
     part_price = db.Column(db.Integer())
@@ -59,7 +60,7 @@ def posts():
 
         texts = []
         for el in articles:
-            s = "{} {} {} {} {} {} {} {}".format(el.name, el.tel, el.type, el.device, el.description, el.part_price, el.total_price, el.income).lower()
+            s = "{} {} {} {} {} {} {} {} {}".format(el.name, el.tel, el.type, el.device, el.defect, el.description, el.part_price, el.total_price, el.income).lower()
             texts.append(s)
     
         matches = []
@@ -77,45 +78,6 @@ def posts():
         
         arts = Article.query.order_by(Article.date.desc()).all()
         return render_template('posts.html', arts=arts)
-
-
-'''
-#test area
-@app.route('/find', methods=['POST', 'GET'])
-#@app.route('/find')
-def find():
-    # get first element from table
-    # articles = Article.query.first()
-    # get all elements
-    # articles = Article.query.all()
-    # get all elements sorted by column
-    
-    if request.method == "POST":
-        find = request.form['find']
-        find = find.lower()
-    
-        articles = Article.query.order_by(Article.date.desc()).all()
-     
-        texts = []
-        for el in articles:
-            s = "{} {} {} {}".format(el.name, el.tel, el.device, el.description).lower()
-            texts.append(s)
-    
-        matches = []
-        for row in texts:
-            if find in row:
-                matches.append(texts.index(row))
-        
-        arts = []
-        for index in matches:
-            arts.append(articles[index])
-        
-        return render_template('find.html', arts=arts)
-    
-    else:
-        return render_template('find.html')
-#test area
-'''
 
 
 @app.route('/posts/<int:id>')
@@ -143,6 +105,7 @@ def create_article():
         tel = request.form['tel']
         type = request.form['type']
         device = request.form['device']
+        defect = request.form['defect']
         description = request.form['description']
         part_price = request.form['part_price']
         total_price = request.form['total_price']
@@ -154,6 +117,7 @@ def create_article():
                           tel=tel,
                           type=type,
                           device=device,
+                          defect=defect,
                           description=description,
                           part_price=part_price,
                           total_price=total_price,
@@ -178,6 +142,7 @@ def post_update(id):
         article.tel = request.form['tel']
         article.type = request.form['type']
         article.device = request.form['device']
+        article.defect = request.form['defect']
         article.description = request.form['description']
         article.part_price = request.form['part_price']
         article.total_price = request.form['total_price']

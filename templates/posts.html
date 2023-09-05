@@ -36,7 +36,7 @@
         <tr>
           <th scope="col">#</th>
             <th scope="col"><font color="darkgrey">Type</font> Device</th>
-          <th scope="col">Description</th>
+            <th scope="col"><font color="darkgrey">Defect</font> Description</th>
           <th scope="col">Name</th>
             <th scope="col">Tel</th>
           <th scope="col">Date</th>
@@ -54,7 +54,7 @@
 
                <th scope="row">{{ el.id }}</th>
                <td><font color="darkgrey">{{ el.type }}</font> {{ el.device }}</td>
-               <td>{{ el.description }}</td>
+               <td><font color="darkgrey">{{ el.defect }}</font> {{ el.description }}</td>
                <td>{{ el.name }}</td>
                <td>{{ el.tel }}</td>
                <td>{{ el.date.date() }}</td>
@@ -65,7 +65,10 @@
                     <div class="btn-group">
                       <a href="/post/{{ el.id }}/update" class="btn btn-outline-primary btn-sm">Update</a>
                       <a href="/posts/{{ el.id }}/delete" class="btn btn-outline-primary btn-sm">Delete</a>
-                    </div>  
+                    </div>
+
+                  <input type="checkbox" id="done" name="done" />
+
               </td>
 
             </tr>

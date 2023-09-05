@@ -12,6 +12,7 @@ table = Table(
     Column('tel', String(20)),
     Column('type', String(10)),
     Column('device', String(100)),
+    Column('defect', Text()),
     Column('description', Text()),
     Column('date', DateTime(), default=datetime.utcnow),
     Column('part_price', Integer()),
